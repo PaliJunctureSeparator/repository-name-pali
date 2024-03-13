@@ -21,14 +21,9 @@ The _Pāḷi Text Juncture Splitter_ is a fragmentizing tool that break up Pā�
 It is perfect for those who are beginners and intermediates in Pāḷi reading, Pāḷi instructors looking for a teaching aid, as well as those who would like to proficiently chant Parittā verses.\n
 """
 st.divider()
-
-st.markdown("<h4 style='text-align: center;'>Start separating Pāḷi text in 3 easy steps:</h4>", unsafe_allow_html=True)
-st.divider()
-
 """
 **Insert Pāḷi text here:**
 """
-
 def animation_demo() -> None:
     # Insert Text
     insert_text = st.text_area('', height=200, placeholder="e.g. \nNamo tassa bhagavato arahato sammāsambuddhassa.")
