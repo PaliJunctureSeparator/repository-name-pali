@@ -8,7 +8,9 @@ import pandas as pd
 LOGGER = get_logger(__name__)
 
 st.set_page_config(page_title="Pāḷi Text Juncture Separator", page_icon="🌴")
-st.sidebar.header("page title")
+
+# Sidebar
+st.sidebar.header("Customize your conversion:")
 
 st.markdown("<h1 style='text-align: center;'>Pāḷi Text Juncture Separator 🌴</h1>", unsafe_allow_html=True)
 st.markdown("<h5 style='text-align: center;'>Read Pāḷi verses fluently.</h5>", unsafe_allow_html=True)
@@ -24,38 +26,31 @@ st.markdown("<h4 style='text-align: center;'>Start separating Pāḷi text in 3 
 st.divider()
 
 """
-**1. Insert Pāḷi text here:**
+**Insert Pāḷi text here:**
 """
 
 def animation_demo() -> None:
     # Insert Text
     insert_text = st.text_area('', height=200, placeholder="e.g. \nNamo tassa bhagavato arahato sammāsambuddhassa.")
 
-    st.divider()
-
-    # Customize conversion
-    """
-    **2. Customize your conversion:**
-    """
-
     # Medial anusvāra/niggahīta to nasal (gaṃgā → gaṅgā)
-    nasal_check = st.checkbox(label='Medial anusvāra/niggahīta to nasal (gaṃgā → gaṅgā)')
+    nasal_check = st.sidebar.checkbox(label='Medial anusvāra/niggahīta to nasal (gaṃgā → gaṅgā)')
 
     # Nasal ññ → nñ)
-    nñ_check = st.checkbox(label='ññ → nñ')
+    nñ_check = st.sidebar.checkbox(label='ññ → nñ')
 
     # Nasal ṅ, ṃ, ṁ → ng)
-    ng_check = st.checkbox(label='ṅ, ṃ, ṁ → ng')
+    ng_check = st.sidebar.checkbox(label='ṅ, ṃ, ṁ → ng')
 
     # Split text in UPPERCASE
-    uppercase_check = st.checkbox(label='Split text in UPPERCASE')
+    uppercase_check = st.sidebar.checkbox(label='Split text in UPPERCASE')
 
     # Continuous Reading
-    continuous_check = st.checkbox(label='Continuous reading')
-    st.caption('↳ ignore phrase/line breaks and punctuation pauses: commas, semi-colons, colons, periods')
+    continuous_check = st.sidebar.checkbox(label='Continuous reading')
+    st.sidebar.caption('↳ ignore phrase/line breaks and punctuation pauses: commas, semi-colons, colons, periods')
 
     # Anusvāra/niggahīta standard conversion (ṃ ⇄ ṁ)
-    anusvara_select = st.selectbox(
+    anusvara_select = st.sidebar.selectbox(
     "Anusvāra/niggahīta standard conversion (ṃ ⇄ ṁ)",
     ("None", "Change to ṃ - IAST (International Alphabet of Sanskrit Transliteration)", "Change to ṁ - ISO 15919: Pāḷi"),
     index=None,
@@ -65,8 +60,8 @@ def animation_demo() -> None:
     # Default & Custom Juncture Sign
     def_sepa= " — "
     juncture_placeholder = "Optional"
-    custom_sepa = st.text_input(label='Customize your own juncture sign:', placeholder=juncture_placeholder)
-    st.caption('↳ try _ , - , ^ , / , \ , = , ~ , | , )( , }{ , or ][ ')
+    custom_sepa = st.sidebar.text_input(label='Customize your own juncture sign:', placeholder=juncture_placeholder)
+    st.sidebar.caption('↳ try _ , - , ^ , / , \ , = , ~ , | , )( , }{ , or ][ ')
     if custom_sepa == '':
         sepa=def_sepa
     else:
@@ -2287,7 +2282,7 @@ def animation_demo() -> None:
     st.divider()
 
     """
-    **3. Separated text:**
+    **Separated text:**
     """
 
     if insert_text == "":
