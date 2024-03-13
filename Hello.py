@@ -46,7 +46,7 @@ def animation_demo() -> None:
 
     # Anusvāra/niggahīta standard conversion (ṃ ⇄ ṁ)
     anusvara_select = st.sidebar.selectbox(
-    "Anusvāra/niggahīta standard conversion (ṃ ⇄ ṁ)",
+    "Anusvāra/niggahīta standard conversion \n(ṃ ⇄ ṁ)",
     ("None", "Change to ṃ - IAST (International Alphabet of Sanskrit Transliteration)", "Change to ṁ - ISO 15919: Pāḷi"),
     index=None,
     placeholder="None",
