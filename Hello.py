@@ -18,7 +18,7 @@ st.divider()
 """
 **What is it and who is it for?** \n
 The _Pāḷi Text Juncture Splitter_ is a fragmentizing tool that break up Pāḷi texts based on the class of each syllable (heavy or light) so that you may read them _effortlessly_ with just the right tempo.\n
-It is perfect for those who are beginners and intermediates in Pāḷi reading, Pāḷi instructors looking for a teaching aid, as well as those who would like to proficiently chant Parittā verses.\n
+It is perfect for beginners and intermediates in Pāḷi reading, Pāḷi instructors looking for a teaching aid, as well as those who would like to proficiently chant Parittā verses.\n
 """
 st.divider()
 """
@@ -2365,7 +2365,8 @@ If you have any questions, checkout our [documentation](https://docs.streamlit.i
 forums](https://discuss.streamlit.io).
 
 """
-show_app_code = st.checkbox (label='Show Pāḷi Text Juncture Separator app code')
+st.sidebar.divider()
+show_app_code = st.sidebar.checkbox (label='Show app code')
 
 if show_app_code:
     show_code(animation_demo)
